@@ -1,0 +1,95 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication2.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head runat="server">
+    <title>UIC project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="js/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+
+    <%--jQuery CDN.--%>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+    <script src="https://rawgithub.com/trentrichardson/jQuery-Timepicker-Addon/master/jquery-ui-timepicker-addon.js"></script>
+    <script src="https://rawgithub.com/trentrichardson/jQuery-Timepicker-Addon/master/jquery-ui-sliderAccess.js"></script>
+
+    <%--GRIDVIEW STYLE.--%>
+    <style>
+        .textbox {
+            width:70px;
+            padding:2px 4px;
+            font:inherit;
+            text-align:left;
+            border:solid 1px #BFBFBF;
+            border-radius:2px; -moz-border-radius:2px; -webkit-border-radius:2px; 
+            text-transform:uppercase;
+        }
+        .button {
+            cursor: pointer;
+            text-align: center;
+            color: #FFF;
+            font: inherit;
+            background-color: #4D90FE;
+            border: solid 1px #3079ED;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            line-height: 15px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+            prm.add_initializeRequest(InitializeRequest);
+            prm.add_endRequest(EndRequest);
+
+            BindControls();
+        });
+        function InitializeRequest(sender, args) { }
+        function EndRequest(sender, args) { BindControls(); }
+
+        function BindControls() {
+
+            // jQuery DATE PICKER.
+            $(function () { $('input[id*=tbIssueDate]').datepicker({ dateFormat: 'dd/mm/yy' }); });
+        }
+    </script>
+
+
+<body>
+    <form runat="server">
+        <div class="grid">
+            <div id="header">
+                <div class="col_3 column">
+                    <a href="default.aspx">
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/img/LOGO.png" /></a>
+                </div>
+                <div class="col_6 column">
+                    <h1>Management of UIC Projects</h1>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Mon ASP.NET Application</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>

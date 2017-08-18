@@ -1,0 +1,139 @@
+﻿
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid {
+    max-width: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    color: #555;
+    line-height: 1.15538em;
+    padding-bottom: 0.273em;
+    padding-top: 0.273em;
+    text-rendering: optimizelegibility;
+}
+
+h1 {
+    margin: 0px;
+    font-size: 30px;
+}
+
+#header h1 {
+    font-size: 26px;
+    margin: 15px 0;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 16px;
+    font-weight: bolder;
+    border-bottom: 2px solid #ddd;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+th, td {
+    border-bottom: 1px dotted #e6e6e6;
+    font-size: 1em;
+    padding: 3px;
+    text-align: left;
+}
+
+.title td {
+    background: none repeat scroll 0 0 #2190ce;
+    color: #fff;
+    border: 1px solid #E6E6E6;
+}
+
+.titleTable {
+    font-size: 14px;
+    border: 1px solid #E6E6E6;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    color: #fff;
+    background: none repeat scroll 0 0 #2190ce;
+}
+
+/*---------------------------------
+	LAYOUT
+-----------------------------------*/
+body {
+    margin: 0;
+    padding: 0 0 0 0;
+    color: #000;
+    background-color: #fcfcfc;
+    background: #FAFAFA;
+    font: normal 14px Arial, Helvetica, Verdana, sans-serif;
+    text-shadow: 0px 0px 1px transparent; /* google font pixelation fix */
+}
+
+a, a:hover {
+    color: #2190ce;
+}
+
+#wrap {
+    width: 100%;
+    margin: 30px auto 30px auto;
+    padding: 0 2%;
+    border: 10px solid #ccc;
+}
+
+ul.breadcrumbs {
+    background: #fff;
+    border-bottom: #4dab98;
+    background: url(css/img/sfondo.png);
+    padding-left: 26%;
+    margin: 0px;
+    margin-top: -20px;
+    height: 30px;
+    color: #333;
+    line-height: 27px;
+    font-size: 12px;
+}
+
+#header {
+    height: 136px;
+    border-bottom: 10px solid #E6E6E6;
+    margin-top: 15px;
+}
+
+#crumb {
+    width: 100%;
+}
+
+.menu2 {
+    height: 35px;
+    background: #2190ce;
+}
+
+    .menu2 li a {
+        display: block;
+        float: left;
+        height: 35px;
+        line-height: 35px;
+        color: #2190ce;
+        text-decoration: none;
+        font-size: 12px;
+        font-family: arial, verdana, sans-serif;
+        font-weight: bold;
+        text-align: center;
+        padding: 0 0 0 8px;
+        cursor: pointer;
+    }

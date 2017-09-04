@@ -27,7 +27,7 @@ namespace WebApplication2
             // NOW GET VALUES FROM FIELDS FROM THE ACTIVE ROW.
 
 
-
+            DropDownList DpBureau = (DropDownList)grdRow.Cells[0].FindControl("DpBureau");
             DropDownList DpPerson = (DropDownList)grdRow.Cells[0].FindControl("DpPerson");
 
             TextBox tbBookName = (TextBox)grdRow.Cells[0].FindControl("Lb");
@@ -36,24 +36,29 @@ namespace WebApplication2
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM dbo.Occupation"))
-                {
-                    // FINALLY INSERT ROW VALUES IN THE TABLE.
+                // FINALLY INSERT ROW VALUES IN THE TABLE.
+
+                    SqlCommand cmd = new SqlCommand();
+
                     cmd.Connection = con;
                     con.Open();
 
-                    cmd.CommandText = "INSERT INTO dbo.Occupation (id_person, DateStart, DateEnd) " +
-                                      "VALUES(@id_person, convert(datetime,@DateStart , 103) , convert(datetime,@DateEnd , 103))";
+                    cmd.CommandText = "INSERT INTO dbo.Occupation (IdBureau,ID_PERSON, DateStart, DateEnd) " +
+                                      "VALUES(@IdBureau, @id_person, convert(datetime,@DateStart , 103) , convert(datetime,@DateEnd , 103))";
 
+                    cmd.Parameters.AddWithValue("@IdBureau", DpBureau.SelectedValue);
                     cmd.Parameters.AddWithValue("@Id_Person", DpPerson.SelectedValue);
-                    cmd.Parameters.AddWithValue("@DateStart", tbDate.Text.Trim() + " 00:00:00.000");
-                    cmd.Parameters.AddWithValue("@DateEnd", tbDate2.Text.Trim() + " 23:59:00.000");
+                    cmd.Parameters.AddWithValue("@DateStart", tbDate.Text.Trim());
+                    cmd.Parameters.AddWithValue("@DateEnd", tbDate2.Text.Trim());
 
                     cmd.ExecuteNonQuery();
-                }
+             
             }
 
-       
+            GdListProject.DataBind();
+
+
+
         }
         
     }

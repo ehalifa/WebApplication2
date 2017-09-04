@@ -105,7 +105,11 @@
                             </FooterTemplate>
                         </asp:TemplateField>
 
-                        <%--<asp:BoundField DataField="DateStart" HeaderText="Date début" SortExpression="DateStart" />
+                        <%--<
+                            commentaire à la con : hcsUHFVOUZHVOZH
+
+
+                            asp:BoundField DataField="DateStart" HeaderText="Date début" SortExpression="DateStart" />
                         <asp:BoundField DataField="DateEnd" HeaderText="Date fin" SortExpression="DateEnd" />--%>
 
                         <asp:TemplateField>

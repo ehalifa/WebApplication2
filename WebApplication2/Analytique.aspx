@@ -5,7 +5,7 @@
         SelectCommand="SELECT ID_CODE, CODE_TITLE From CodeAnalytique order by CODE_TITLE ASC"></asp:SqlDataSource>
 
     <asp:SqlDataSource ID="DsBureau" runat="server" ConnectionString="<%$ ConnectionStrings: DB_PROJET %>"
-        SelectCommand="select Bureau.NumBureau, Bureau.LibBureau, NAME + ' ' + FIRSTNAME as Fullname, Surface                    
+        SelectCommand="select Bureau.NumBureau, NAME, FIRSTNAME, Surface                    
                             from Personne inner join Occupation on Occupation.ID_PERSON=Personne.ID_PERSON
                             inner join Bureau on Bureau.IdBureau=Occupation.IdBureau
                             inner join Surface on Surface.IdBureau=Bureau.IdBureau
@@ -34,8 +34,8 @@
 
 
                         <asp:BoundField DataField="NumBureau" HeaderText="NumBureau" SortExpression="NumBureau" />
-                        <asp:BoundField DataField="LibBureau" HeaderText="Libelle Bureau" SortExpression="LibBureau" />
-                        <asp:BoundField DataField="Fullname" HeaderText="Nom" SortExpression="Fullname" />
+                        <asp:BoundField DataField="NAME" HeaderText="Nom" SortExpression="NAME" />
+                        <asp:BoundField DataField="FIRSTNAME" HeaderText="Prénom" SortExpression="FIRSTNAME" />
                         <asp:BoundField DataField="Surface" HeaderText="Surface" SortExpression="Surface" />
 
                     </Columns>

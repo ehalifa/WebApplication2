@@ -36,14 +36,13 @@ namespace WebApplication2
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                // FINALLY INSERT ROW VALUES IN THE TABLE.
-
-                    SqlCommand cmd = new SqlCommand();
-
+                SqlCommand cmd = new SqlCommand();
+                
+                    // FINALLY INSERT ROW VALUES IN THE TABLE.
                     cmd.Connection = con;
                     con.Open();
 
-                    cmd.CommandText = "INSERT INTO dbo.Occupation (IdBureau,ID_PERSON, DateStart, DateEnd) " +
+                    cmd.CommandText = "INSERT INTO dbo.Occupation (IdBureau, ID_PERSON, DateStart, DateEnd) " +
                                       "VALUES(@IdBureau, @id_person, convert(datetime,@DateStart , 103) , convert(datetime,@DateEnd , 103))";
 
                     cmd.Parameters.AddWithValue("@IdBureau", DpBureau.SelectedValue);
@@ -52,13 +51,11 @@ namespace WebApplication2
                     cmd.Parameters.AddWithValue("@DateEnd", tbDate2.Text.Trim());
 
                     cmd.ExecuteNonQuery();
-             
+                
             }
-
             GdListProject.DataBind();
 
-
-
+       
         }
         
     }

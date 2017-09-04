@@ -22,6 +22,8 @@
         DeleteCommand="Delete from Occupation where IdOccupation=@IdOccupation"
         UpdateCommand="Update occupation set id_person = @id_person where IdOccupation=@IdOccupation">
 
+
+
         <SelectParameters>
             <asp:ControlParameter ControlID="DpListeEtage" Name="IdEtagex" PropertyName="SelectedValue" Type="String" />
         </SelectParameters>
@@ -38,8 +40,7 @@
     </asp:SqlDataSource>
 
     <div>
-        <%-- Ajout du commentaire pour test github --%>
-        Liste des etages 
+        Liste des etages
             <asp:DropDownList ID="DpListeEtage" runat="server" AutoPostBack="true"
                 DataTextField="LibEtage" DataValueField="IdEtage" DataSourceID="DsEtage">
             </asp:DropDownList>
@@ -53,12 +54,14 @@
                     <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                     <Columns>
 
+                        <asp:BoundField DataField="NumBureau" HeaderText="Numéro Bureau" SortExpression="NumBureau" ReadOnly="true" />
+
                         <asp:TemplateField HeaderText="Numéro Bureau">
                             <ItemTemplate>
                                 <asp:Label ID="NumBureau" Text='<%# DataBinder.Eval(Container.DataItem, "NumBureau")%>' runat="server" />
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:DropDownList ID="DpBureau" DataSourceID="DsBureau" DataValueField="IdBureau"
+                                <asp:DropDownList ID="DpBureau" DataSourceID="DsBureau" DataValueField="IdBureau" 
                                     SelectedValue='<%# Bind("IdBureau") %>' DataTextField="IdBureau" runat="server">
                                 </asp:DropDownList>
                             </EditItemTemplate>
@@ -84,35 +87,27 @@
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Date">
-                            <ItemTemplate>
-                                <asp:Label ID="lblIsseDate" Width="140px" runat="server" Text='
-                                <%#Eval("DateStart")%>'></asp:Label>
-                            </ItemTemplate>
-                            <FooterTemplate>
-                                <asp:TextBox ID="tbIssueDate" DataFormatString="{dd/MM/yyyy}"
-                                    CssClass="textbox" runat="server"></asp:TextBox>
-                            </FooterTemplate>
+                            <ItemTemplate><asp:Label ID="lblIsseDate" width="140px" runat="server" Text='
+                                <%#Eval("DateStart")%>'></asp:Label></ItemTemplate>
+                            <FooterTemplate><asp:TextBox ID="tbIssueDate" DataFormatString="{dd/MM/yyyy}"
+                                CssClass="textbox" runat="server"></asp:TextBox></FooterTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Date">
-                            <ItemTemplate>
-                                <asp:Label ID="lblIsseDate2" Width="140px" runat="server" Text='
-                                <%#Eval("DateEnd")%>'></asp:Label>
-                            </ItemTemplate>
-                            <FooterTemplate>
-                                <asp:TextBox ID="tbIssueDate2" DataFormatString="{dd/MM/yyyy}"
-                                    CssClass="textbox" runat="server"></asp:TextBox>
-                            </FooterTemplate>
+                            <ItemTemplate><asp:Label ID="lblIsseDate2" width="140px" runat="server" Text='
+                                <%#Eval("DateEnd")%>'></asp:Label></ItemTemplate>
+                            <FooterTemplate><asp:TextBox ID="tbIssueDate2" DataFormatString="{dd/MM/yyyy}"
+                                CssClass="textbox" runat="server"></asp:TextBox></FooterTemplate>
                         </asp:TemplateField>
 
-                        <%--<asp:BoundField DataField="DateStart" HeaderText="Date début" SortExpression="DateStart" />
-                        <asp:BoundField DataField="DateEnd" HeaderText="Date fin" SortExpression="DateEnd" />--%>
+                        <asp:BoundField DataField="DateStart" HeaderText="Date début" SortExpression="DateStart" />
+                        <asp:BoundField DataField="DateEnd" HeaderText="Date fin" SortExpression="DateEnd" />
 
                         <asp:TemplateField>
                             <ItemTemplate></ItemTemplate>
                             <FooterTemplate>
-                                <asp:Button ID="btInsert_Click"
-                                    Text="Ajouter" CssClass="button" OnClick="btInsert_Click"
+                                <asp:Button ID="btInsert" 
+                                    Text="Enregistrer" CssClass="button" OnClick="btInsert_Click" 
                                     CommandName="Footer" runat="server" />
                             </FooterTemplate>
                         </asp:TemplateField>

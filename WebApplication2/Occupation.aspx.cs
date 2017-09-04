@@ -42,7 +42,7 @@ namespace WebApplication2
                     cmd.Connection = con;
                     con.Open();
 
-                    cmd.CommandText = "INSERT INTO dbo.Occupation (id_person, DateStart, DateEnd) " +
+                    cmd.CommandText = "INSERT INTO dbo.Occupation (ID_PERSON, DateStart, DateEnd) " +
                                       "VALUES(@id_person, convert(datetime,@DateStart , 103) , convert(datetime,@DateEnd , 103))";
 
                     cmd.Parameters.AddWithValue("@Id_Person", DpPerson.SelectedValue);

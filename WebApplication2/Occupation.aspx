@@ -21,8 +21,6 @@
                                 where Occupation.ID_PERSON = Personne.ID_PERSON and IdEtage = @IdEtagex order by numbureau"
         UpdateCommand="Update occupation set id_person = @id_person where IdOccupation=@IdOccupation">
 
-
-
         <SelectParameters>
             <asp:ControlParameter ControlID="DpListeEtage" Name="IdEtagex" PropertyName="SelectedValue" Type="String" />
 
@@ -36,7 +34,8 @@
     </asp:SqlDataSource>
 
     <div>
-        Liste des etages
+        <%-- Ajout du commentaire pour test github --%>
+        Liste des etages 
             <asp:DropDownList ID="DpListeEtage" runat="server" AutoPostBack="true"
                 DataTextField="LibEtage" DataValueField="IdEtage" DataSourceID="DsEtage">
             </asp:DropDownList>
@@ -83,27 +82,35 @@
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Date">
-                            <ItemTemplate><asp:Label ID="lblIsseDate" width="140px" runat="server" Text='
-                                <%#Eval("DateStart")%>'></asp:Label></ItemTemplate>
-                            <FooterTemplate><asp:TextBox ID="tbIssueDate" DataFormatString="{dd/MM/yyyy}"
-                                CssClass="textbox" runat="server"></asp:TextBox></FooterTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="lblIsseDate" Width="140px" runat="server" Text='
+                                <%#Eval("DateStart")%>'></asp:Label>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                <asp:TextBox ID="tbIssueDate" DataFormatString="{dd/MM/yyyy}"
+                                    CssClass="textbox" runat="server"></asp:TextBox>
+                            </FooterTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Date">
-                            <ItemTemplate><asp:Label ID="lblIsseDate2" width="140px" runat="server" Text='
-                                <%#Eval("DateEnd")%>'></asp:Label></ItemTemplate>
-                            <FooterTemplate><asp:TextBox ID="tbIssueDate2" DataFormatString="{dd/MM/yyyy}"
-                                CssClass="textbox" runat="server"></asp:TextBox></FooterTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="lblIsseDate2" Width="140px" runat="server" Text='
+                                <%#Eval("DateEnd")%>'></asp:Label>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                <asp:TextBox ID="tbIssueDate2" DataFormatString="{dd/MM/yyyy}"
+                                    CssClass="textbox" runat="server"></asp:TextBox>
+                            </FooterTemplate>
                         </asp:TemplateField>
 
-                        <asp:BoundField DataField="DateStart" HeaderText="Date début" SortExpression="DateStart" />
-                        <asp:BoundField DataField="DateEnd" HeaderText="Date fin" SortExpression="DateEnd" />
+                        <%--<asp:BoundField DataField="DateStart" HeaderText="Date début" SortExpression="DateStart" />
+                        <asp:BoundField DataField="DateEnd" HeaderText="Date fin" SortExpression="DateEnd" />--%>
 
                         <asp:TemplateField>
                             <ItemTemplate></ItemTemplate>
                             <FooterTemplate>
-                                <asp:Button ID="btInsert" 
-                                    Text="Insert Record" CssClass="button" OnClick="btInsert_Click" 
+                                <asp:Button ID="btInsert_Click"
+                                    Text="Ajouter" CssClass="button" OnClick="btInsert_Click"
                                     CommandName="Footer" runat="server" />
                             </FooterTemplate>
                         </asp:TemplateField>

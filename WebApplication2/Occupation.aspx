@@ -19,12 +19,16 @@
                                 from occupation inner join Bureau on bureau.idbureau =occupation.IdBureau								
 								inner join Personne on Occupation.ID_PERSON = Personne.ID_PERSON
                                 where Occupation.ID_PERSON = Personne.ID_PERSON and IdEtage = @IdEtagex order by numbureau"
+        DeleteCommand="Delete from Occupation where IdOccupation=@IdOccupation"
         UpdateCommand="Update occupation set id_person = @id_person where IdOccupation=@IdOccupation">
 
         <SelectParameters>
             <asp:ControlParameter ControlID="DpListeEtage" Name="IdEtagex" PropertyName="SelectedValue" Type="String" />
-
         </SelectParameters>
+
+        <DeleteParameters>
+            <asp:Parameter Name="IdOccupation" Type="Int32" />
+        </DeleteParameters>
 
         <UpdateParameters>
             <asp:Parameter Name="IdOccupation" Type="Int32" />
@@ -48,8 +52,6 @@
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                     <Columns>
-
-                        <asp:BoundField DataField="NumBureau" HeaderText="Numéro Bureau" SortExpression="NumBureau" ReadOnly="true" />
 
                         <asp:TemplateField HeaderText="Numéro Bureau">
                             <ItemTemplate>

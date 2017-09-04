@@ -46,21 +46,11 @@
     </style>
 
     <script>
-        $(document).ready(function () {
-            var prm = Sys.WebForms.PageRequestManager.getInstance();
-            prm.add_initializeRequest(InitializeRequest);
-            prm.add_endRequest(EndRequest);
 
-            BindControls();
+    // jQuery DATE PICKER.
+        $(function () {
+            $('input[id*=tbIssueDate]').datepicker({ dateFormat: 'dd/mm/yy' });
         });
-        function InitializeRequest(sender, args) { }
-        function EndRequest(sender, args) { BindControls(); }
-
-        function BindControls() {
-
-            // jQuery DATE PICKER.
-            $(function () { $('input[id*=tbIssueDate]').datepicker({ dateFormat: 'dd/mm/yy' }); });
-        }
     </script>
 
 
